@@ -16,3 +16,4 @@ public interface VoteService {
     Map<String, Long> getVotesCountOfAllCategories();
 
 }
+

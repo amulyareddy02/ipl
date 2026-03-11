@@ -29,7 +29,6 @@
 /home/coder/app/server/src/main/java/com/edutech/progressive/dto/LoginRequest.java
 /home/coder/app/server/src/main/java/com/edutech/progressive/repository/MatchRepository.java
 /home/coder/app/server/src/main/java/com/edutech/progressive/dto/LoginResponse.java
-/home/coder/app/server/src/main/java/com/edutech/progressive/entity/Id.java
 /home/coder/app/server/src/main/java/com/edutech/progressive/service/impl/TeamServiceImplJpa.java
 /home/coder/app/server/src/main/java/com/edutech/progressive/service/impl/CricketerServiceImplArraylist.java
 /home/coder/app/server/src/main/java/com/edutech/progressive/service/MatchService.java

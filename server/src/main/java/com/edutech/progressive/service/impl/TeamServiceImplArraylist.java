@@ -8,12 +8,12 @@ import com.edutech.progressive.entity.Team;
 import com.edutech.progressive.service.TeamService;
 
 public class TeamServiceImplArraylist implements TeamService {
+
     private static List<Team> teamList = new ArrayList<>();
 
     @Override
     public List<Team> getAllTeams() {
         return teamList;
-       
     }
 
     @Override
@@ -24,7 +24,7 @@ public class TeamServiceImplArraylist implements TeamService {
 
     @Override
     public List<Team> getAllTeamsSortedByName() {
-         List<Team> sortedTeam = teamList;
+        List<Team> sortedTeam = teamList;
         sortedTeam.sort(Comparator.comparing(Team::getTeamName));
         return sortedTeam;
     }
@@ -32,9 +32,14 @@ public class TeamServiceImplArraylist implements TeamService {
     @Override
     public void emptyArrayList() {
         teamList = new ArrayList<>();
-        
-        
     }
+
     
 
+
 }
+ 
+ 
+ 
+
+ 
