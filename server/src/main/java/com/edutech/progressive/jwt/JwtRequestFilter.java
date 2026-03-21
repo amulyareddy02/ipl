@@ -1,4 +1,6 @@
+
 package com.edutech.progressive.jwt;
+
 
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import javax.servlet.FilterChain; // Boot 2: javax.*
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,7 +45,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 username = jwtUtil.extractUsername(jwt);
             } catch (ExpiredJwtException | UnsupportedJwtException | MalformedJwtException |
                      SignatureException | IllegalArgumentException e) {
-                // optionally log/ignore invalid tokens
+                // Handle invalid tokens here if needed
             }
         }
 
@@ -55,9 +57,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 Collection<? extends GrantedAuthority> authorities =
                         AuthorityUtils.createAuthorityList((String) claims.get("role"));
 
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(userDetails, null, authorities);
-
+                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+                        userDetails, null, authorities);
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         }

@@ -1,8 +1,10 @@
- package com.edutech.progressive.exception;
- 
-public class TeamCricketerLimitExceededException
-extends RuntimeException {
-   public TeamCricketerLimitExceededException(String message) {
-      super(message);
-   }
+
+package com.edutech.progressive.exception;
+
+public class TeamCricketerLimitExceededException extends Exception {
+
+    public TeamCricketerLimitExceededException(String message) {
+        super(message);
+    }
+    
 }

@@ -60,20 +60,33 @@ export class DashboardComponent implements OnInit {
       }
     });
 
+    // this.iplService.getVotesCountOfAllCategories().subscribe({
+    //   next: (response) => {
+    //     const voteMap: Map<string, number> = response;
+    //     if (voteMap.size > 0) {
+    //       this.voteArray = Array.from(voteMap.entries()).map(([key, value]) => ({ key, value }));
+    //     }
+    //   },
+    //   error: (error) => {
+    //     console.error('Error loading votes count of all categories.', error);
+    //   },
+    //   complete: () => {
+    //     console.log('Votes count of all categories loaded successfully.');
+    //   }
+    // });
     this.iplService.getVotesCountOfAllCategories().subscribe({
-      next: (response) => {
-        const voteMap: Map<string, number> = response;
-        if (voteMap.size > 0) {
-          this.voteArray = Array.from(voteMap.entries()).map(([key, value]) => ({ key, value }));
-        }
-      },
-      error: (error) => {
-        console.error('Error loading votes count of all categories.', error);
-      },
-      complete: () => {
-        console.log('Votes count of all categories loaded successfully.');
-      }
-    });
+  next: (res) => {
+    const entries = Object.entries(res || {}); // e.g., [["Team", 3], ["Cricketer", 5]]
+    this.voteArray = entries.map(([key, value]) => ({ key, value }));
+  },
+  error: (error) => {
+    console.error('Error loading votes count of all categories.', error);
+    this.voteArray = [];
+  },
+  complete: () => {
+    console.log('Votes count of all categories loaded successfully.');
+  }
+});
   }
 
   loadUserData(): void {
